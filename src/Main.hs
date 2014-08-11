@@ -2,6 +2,9 @@ module Main where
 import System.Environment
 import Data.Array.IO
 
+add x y = do
+    x + y
+
 main :: IO ()
 main = do
     args <- getArgs
