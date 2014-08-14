@@ -1,6 +1,7 @@
 module Main where
 import System.Environment
-import vect
+import GHC.TypeLits
+import Numeric.LinearAlgebra.HMatrix at LA
 
 main :: IO ()
 main = do
