@@ -2,11 +2,10 @@ module Main where
 import GHC.TypeLits
 import Numeric.LinearAlgebra.HMatrix as MAT
 
-add :: Int -> Int -> Int
-add x y = 
-    x + y
+newMat () =
+    matrix 3 [1..9] * ident 3
 
 main :: IO ()
 main = do
-    let z = add 1 1
-    putStrLn $show z
+    let x = newMat ()
+    putStrLn (show x)
