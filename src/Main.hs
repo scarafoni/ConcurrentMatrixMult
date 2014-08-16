@@ -12,6 +12,9 @@ matMult m1 m2 =
     m1
 
 main :: IO ()
-main = do
-        
-    putStrLn (show y)
+main = do        
+    let x = [[1,0,0],
+             [0,1,0],
+             [0,0,1]]
+
+    putStrLn (show $x!!0!!0)
