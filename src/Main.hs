@@ -8,6 +8,8 @@ import Control.Parallel
 newMat () =
     matrix 2 [1..9] * ident 2
 -}
+
+
 makeRandomRow rng = do
     let ns = randoms rng :: [Int]
     take 2 ns
@@ -15,13 +17,20 @@ makeRandomRow rng = do
 makeRandomMat rng = 
     [makeRandomRow rng, makeRandomRow rng]
 
+cell11 a b = 
+    (a!!0!!0 * b!!0!!0) + (a!!0!!1 * b!!1!!0)
+cell12 a b = 
+    (a!!0!!0 * b!!0!!1) + (a!!0!!1 * b!!1!!1)
+cell21 a b = 
+    (a!!1!!0 * b!!0!!0) + (a!!1!!1 * b!!1!!0)
+cell22 a b = 
+    (a!!1!!0 * b!!1!!0) + (a!!1!!1 * b!!1!!1)
 multMatsNorm a b = 
-    [[(a!!0!!0 * b!!0!!0) + (a!!0!!1 * b!!1!!0), (a!!0!!0 * b!!0!!1) + (a!!0!!1 * b!!1!!1)],
-    [(a!!1!!0 * b!!0!!0) + (a!!1!!1 * b!!1!!0), (a!!1!!0 * b!!1!!0) + (a!!1!!1 * b!!1!!1)]]
-    
+    [[cell11 a b, cell12 a b],
+     [cell21 a b, cell22 a b]]
 
 multMatsPar= 
-    2
+    1
 
 main :: IO ()
 main = do        
