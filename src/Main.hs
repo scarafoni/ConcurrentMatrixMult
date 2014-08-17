@@ -15,6 +15,12 @@ makeRandomRow rng = do
 makeRandomMat rng = 
     [makeRandomRow rng, makeRandomRow rng]
 
+multMatsNorm m1 m2 = 
+    1
+
+multMatsPar= 
+    2
+
 main :: IO ()
 main = do        
     rng <- newStdGen
