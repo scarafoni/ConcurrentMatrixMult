@@ -15,8 +15,10 @@ makeRandomRow rng = do
 makeRandomMat rng = 
     [makeRandomRow rng, makeRandomRow rng]
 
-multMatsNorm m1 m2 = 
-    1
+multMatsNorm a b = 
+    [[(a!!0!!0 * b!!0!!0) + (a!!0!!1 * b!!1!!0), (a!!0!!0 * b!!0!!1) + (a!!0!!1 * b!!1!!1)],
+    [(a!!1!!0 * b!!0!!0) + (a!!1!!1 * b!!1!!0), (a!!1!!0 * b!!1!!0) + (a!!1!!1 * b!!1!!1)]]
+    
 
 multMatsPar= 
     2
@@ -25,4 +27,6 @@ main :: IO ()
 main = do        
     rng <- newStdGen
     let x = makeRandomMat rng
-    putStrLn (show x)
+    let y = makeRandomMat rng
+    let xy = multMatsNorm x y
+    putStrLn (show xy)
