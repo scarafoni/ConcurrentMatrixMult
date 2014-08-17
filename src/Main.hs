@@ -40,6 +40,7 @@ multMatsPar a b =
         x21 =  cell21 a b
         x22 =  cell22 a b
 
+
 main = do
     rng <- newStdGen
     let x = makeRandomMat rng
